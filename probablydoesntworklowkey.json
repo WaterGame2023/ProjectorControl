@@ -1,0 +1,44 @@
+{
+  "name": "Sony VPL-PWZ10 Projector",
+  "type": "projector",
+  "vendor": "Sony",
+  "commands": [
+    {
+      "name": "Power On",
+      "command": "*POW=1#",
+      "protocol": "ADCP",
+      "commandType": "string",
+      "description": "Power On"
+    },
+    {
+      "name": "Power Off",
+      "command": "*POW=0#",
+      "protocol": "ADCP",
+      "commandType": "string",
+      "description": "Power Off"
+    }
+  ],
+  "statuses": [
+    {
+      "name": "Power State",
+      "status": "powerState",
+      "command": "*POW?#",
+      "protocol": "ADCP",
+      "commandType": "string",
+      "responses": [
+        {
+          "pattern": "*POW=1#",
+          "result": "on"
+        },
+        {
+          "pattern": "*POW=0#",
+          "result": "off"
+        },
+        {
+          "pattern": "*POW=2#",
+          "result": "standby"
+        }
+      ]
+    }
+  ]
+}
