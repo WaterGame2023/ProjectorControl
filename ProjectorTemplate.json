@@ -1,0 +1,50 @@
+{
+  "about": {
+    "name": "Sony ADCP Zoom Rooms Integration with Automatic Power On/Off on Meeting Start/End",
+    "version": "2.0",
+    "author": "Mia Hanson and Jerry Anderson"
+  },
+  "adapters": [
+    {
+      "id": "sony_projector_adapter",
+      "name": "Sony Projector Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://{ip_address}:53595",
+      "ports": [
+        {
+          "id": "projector_port",
+          "name": "Projector Control",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "power %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "\"on\""
+                },
+                {
+                  "id": "off",
+                  "name": "Power Off",
+                  "value": "\"off\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "zr_meeting_started": [
+      "projector_port.power.on"
+    ],
+    "zr_meeting_ended": [
+      "projector_port.power.off"
+    ]
+  },
+  "styles": []
+}
