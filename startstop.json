@@ -1,0 +1,50 @@
+{
+  "about": {
+    "name": "Sony VPL-PHZ51 Projector Control",
+    "version": "1.0",
+    "author": "Zoom Room Integration"
+  },
+  "adapters": [
+    {
+      "id": "sony_projector_adapter",
+      "name": "Sony Projector Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://10.0.37.63:53595",
+      "ports": [
+        {
+          "id": "projector_port",
+          "name": "Projector Control",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "power %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "\"on\""
+                },
+                {
+                  "id": "off",
+                  "name": "Power Off",
+                  "value": "\"off\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "zr_meeting_started": [
+      "projector_port.power.on"
+    ],
+    "zr_meeting_ended": [
+      "projector_port.power.off"
+    ]
+  },
+  "styles": []
+}
