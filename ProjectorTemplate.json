@@ -1,8 +1,8 @@
 {
   "about": {
-    "name": "Sony ADCP Zoom Rooms Integration with Automatic Power On/Off on Meeting Start/End",
-    "version": "2.0",
-    "author": "Mia Hanson and Jerry Anderson"
+    "name": "General Template, really for my own use at this point",
+    "version": "3.0.5",
+    "author": "Mia Hanson"
   },
   "adapters": [
     {
