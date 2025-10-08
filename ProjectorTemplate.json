@@ -1,7 +1,8 @@
 {
   "about": {
     "name": "General Template, really for my own use at this point",
-    "version": "3.0.5",
+    "template_version": "3.0.5",
+    "config_version": "1.0",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -42,7 +43,7 @@
       "comments":"Add more devices here with the same syntax as above, this example is for power",
 
       "id": "{new_device_adapter}",
-      "name": "{Device Adapter}",
+      "name": "{Button Section Name}",
       "model": "GenericNetworkAdapter",
       "ip": "tcp://{ip_address}:{port}",
       "ports": [
