@@ -12,7 +12,7 @@
       "ip": "tcp://{ip_address}:53595",
       "ports": [
         {
-          "id": "projector_port",
+          "id": "{projector_name}",
           "name": "Projector Control",
           "methods": [
             {
@@ -40,10 +40,10 @@
   ],
   "rules": {
     "zr_meeting_started": [
-      "projector_port.power.on"
+      "{projector_name}.power.on"
     ],
     "zr_meeting_ended": [
-      "projector_port.power.off"
+      "{projector_name}.power.off"
     ]
   },
   "styles": []
