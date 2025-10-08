@@ -36,6 +36,41 @@
           ]
         }
       ]
+    },
+    {
+      "key": "value",
+      "comments":"Add more devices here with the same syntax as above, this example is for power",
+
+      "id": "{new_device_adapter}",
+      "name": "{Device Adapter}",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://{ip_address}:{port}",
+      "ports": [
+        {
+          "id": "{new_device_name}",
+          "name": "{Device Control}",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "power %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "\"on\""
+                },
+                {
+                  "id": "off",
+                  "name": "Power Off",
+                  "value": "\"off\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": {
