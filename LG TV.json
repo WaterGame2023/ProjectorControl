@@ -7,14 +7,14 @@
   },
   "adapters": [
     {
-      "id": "lg_tv_1_adapter",
-      "name": "LG 1 TV Adapter",
+      "id": "lg_tv_east_adapter",
+      "name": "LG EAST TV Adapter",
       "model": "GenericNetworkAdapter",
-      "ip": "tcp://10.0.37.37:9761",
+      "ip": "tcp://10.0.37.114:9761",
       "ports": [
         {
-          "id": "lg_tv_1",
-          "name": "LG_1 Power Off",
+          "id": "lg_tv_east",
+          "name": "LG_East Power Off",
           "methods": [
             {
               "id": "power",
@@ -34,14 +34,14 @@
       ]
     },
     {
-      "id": "lg_tv_2_adapter",
-      "name": "LG_2 TV Adapter",
+      "id": "lg_tv_south_adapter",
+      "name": "LG SOUTH TV Adapter",
       "model": "GenericNetworkAdapter",
-      "ip": "tcp://10.0.37.114:9761",
+      "ip": "tcp://10.0.37.82:9761",
       "ports": [
         {
-          "id": "lg_tv_2",
-          "name": "LG_2 Power Off",
+          "id": "lg_tv_south",
+          "name": "LG_South Power Off",
           "methods": [
             {
               "id": "power",
@@ -61,14 +61,41 @@
       ]
     },
     {
-      "id": "lg_tv_1_wol",
-      "name": "LG_2 TV Adapter",
+      "id": "lg_tv_pillar_adapter",
+      "name": "LG PILLAR TV Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://10.0.37.37:9761",
+      "ports": [
+        {
+          "id": "lg_tv_pillar",
+          "name": "LG_Pillar Power Off",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "ka 03 %\r\n",
+              "params": [
+                {
+                  "id": "off",
+                  "name": "Power Off",
+                  "value": "00"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lg_tv_east_wol",
+      "name": "LG EAST WOL Adapter",
       "model": "GenericNetworkAdapter",
       "ip": "tcp://10.0.37.62:4338",
       "ports": [
         {
-          "id": "lg_tv_1_wol",
-          "name": "LG_1 Power On",
+          "id": "lg_tv_east_wol",
+          "name": "LG_East Power On",
           "methods": [
             {
               "id": "power",
@@ -88,20 +115,47 @@
       ]
     },
     {
-      "id": "lg_tv_2_wol",
-      "name": "LG_2 TV Adapter",
+      "id": "lg_tv_south_wol",
+      "name": "LG_SOUTH WOL Adapter",
       "model": "GenericNetworkAdapter",
       "ip": "tcp://10.0.37.62:4338",
       "ports": [
         {
-          "id": "lg_tv_2_wol",
-          "name": "LG_2 Power On",
+          "id": "lg_tv_south_wol",
+          "name": "LG_South Power On",
           "methods": [
             {
               "id": "power",
               "name": "Power",
               "type": "actions",
               "command": "ka 02 %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lg_tv_pillar_wol",
+      "name": "LG_PILLAR WOL Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://10.0.37.62:4338",
+      "ports": [
+        {
+          "id": "lg_tv_pillar_wol",
+          "name": "LG_Pillar Power On",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "ka 03 %\r\n",
               "params": [
                 {
                   "id": "on",
@@ -117,12 +171,14 @@
   ],
   "rules": {
     "zr_meeting_started": [
-      "lg_tv_1_wol.power.on",
-      "lg_tv_2_wol.power.on"
+      "lg_tv_east_wol.power.on",
+      "lg_tv_south_wol.power.on",
+      "lg_tv_pillar_wol.power.on"
     ],
     "zr_meeting_ended": [
-      "lg_tv_1.power.off",
-      "lg_tv_2.power.off"
+      "lg_tv_east.power.off",
+      "lg_tv_south.power.off",
+      "lg_tv_pillar.power.off"
     ]
   },
   "controls": [
@@ -134,15 +190,17 @@
         {
           "name": "Power On TVs (Wake on LAN)",
           "action": [
-            "lg_tv_1_wol.power.on",
-            "lg_tv_2_wol.power.on"
+            "lg_tv_east_wol.power.on",
+            "lg_tv_south_wol.power.on",
+            "lg_tv_pillar_wol.power.on"
           ]
         },
         {
           "name": "Power Off TVs (RS232 over IP)",
           "action": [
-            "lg_tv_1.power.off",
-            "lg_tv_2.power.off"
+            "lg_tv_east.power.off",
+            "lg_tv_south.power.off",
+            "lg_tv_pillar.power.off"
           ]
         }
       ]
