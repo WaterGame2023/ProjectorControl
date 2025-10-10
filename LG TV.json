@@ -1,0 +1,90 @@
+{
+  "about": {
+    "name": "General Template for Zoom Rooms Integrations",
+    "template_version": "3.0.5",
+    "config_version": "1.1",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "id": "lg_tv_1_adapter",
+      "name": "LG_1 TV Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://{ip_address}:9761",
+      "ports": [
+        {
+          "id": "lg_tv_1",
+          "name": "LG_1 Power Off",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "ka 01 %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power Off",
+                  "value": "\"00\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lg_tv_2_adapter",
+      "name": "LG_2 TV Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://{ip_address}:9761",
+      "ports": [
+        {
+          "id": "lg_tv_2",
+          "name": "LG_2 Power Off",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "ka 02 %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power Off",
+                  "value": "\"00\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "LG_tv_1",
+      "name": "Wake on LAN",
+      "model": "GenericWOLAdapter",
+      "mac": "{MAC_address_1}"
+    },
+    {
+      "id": "LG_tv_2",
+      "name": "Wake on LAN",
+      "model": "GenericWOLAdapter",
+      "mac": "{MAC_address_2}"
+    }
+  ],
+  "rules": {
+    "zr_meeting_started": [
+      "LG_tv_1.wake",
+      "LG_tv_2.wake"
+    ],
+    "zr_meeting_ended": [
+      "lg_tv_1.power.off",
+      "lg_tv_2.power.off"
+    ]
+  },
+  "styles": [
+    "lg_tv_1.power.invisible=true",
+    "lg_tv_2.power.invisible=true"
+  ]
+}
