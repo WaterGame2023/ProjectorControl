@@ -95,6 +95,13 @@
             "LG_tv_1.wake",
             "LG_tv_2.wake"
           ]
+        },
+        {
+          "name": "Power Off TVs (RS232 over IP",
+          "action": [
+            "lg_tv_1.power.off",
+            "lg_tv_2.power.off"
+          ]
         }
       ]
     }
