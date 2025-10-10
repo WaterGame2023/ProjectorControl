@@ -83,8 +83,24 @@
       "lg_tv_2.power.off"
     ]
   },
+  "controls": [
+    {
+      "name": "TV Control",
+      "type": "button-group",
+      "label": "TV Power",
+      "buttons": [
+        {
+          "name": "Power On TV 1 (Wake on LAN)",
+          "action": [
+            "LG_tv_1.wake",
+            "LG_tv_2.wake"
+          ]
+        }
+      ]
+    }
+  ],
   "styles": [
-    "lg_tv_1.power.invisible=true",
-    "lg_tv_2.power.invisible=true"
+    "lg_tv_1.power.invisible=false",
+    "lg_tv_2.power.invisible=false"
   ]
 }
