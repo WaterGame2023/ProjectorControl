@@ -23,7 +23,7 @@
               "command": "ka 01 %\r\n",
               "params": [
                 {
-                  "id": "on",
+                  "id": "off",
                   "name": "Power Off",
                   "value": "\"00\""
                 }
@@ -50,7 +50,7 @@
               "command": "ka 02 %\r\n",
               "params": [
                 {
-                  "id": "on",
+                  "id": "off",
                   "name": "Power Off",
                   "value": "\"00\""
                 }
