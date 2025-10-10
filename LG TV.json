@@ -90,7 +90,7 @@
       "label": "TV Power",
       "buttons": [
         {
-          "name": "Power On TV 1 (Wake on LAN)",
+          "name": "Power On TVs (Wake on LAN)",
           "action": [
             "LG_tv_1.wake",
             "LG_tv_2.wake"
