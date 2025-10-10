@@ -8,9 +8,9 @@
   "adapters": [
     {
       "id": "lg_tv_1_adapter",
-      "name": "LG_1 TV Adapter",
+      "name": "LG 1 TV Adapter",
       "model": "GenericNetworkAdapter",
-      "ip": "tcp://{ip_address}:9761",
+      "ip": "tcp://10.0.37.37:9761",
       "ports": [
         {
           "id": "lg_tv_1",
@@ -25,7 +25,7 @@
                 {
                   "id": "off",
                   "name": "Power Off",
-                  "value": "\"00\""
+                  "value": "00"
                 }
               ]
             }
@@ -37,7 +37,7 @@
       "id": "lg_tv_2_adapter",
       "name": "LG_2 TV Adapter",
       "model": "GenericNetworkAdapter",
-      "ip": "tcp://{ip_address}:9761",
+      "ip": "tcp://10.0.37.114:9761",
       "ports": [
         {
           "id": "lg_tv_2",
@@ -52,7 +52,7 @@
                 {
                   "id": "off",
                   "name": "Power Off",
-                  "value": "\"00\""
+                  "value": "00"
                 }
               ]
             }
@@ -61,22 +61,64 @@
       ]
     },
     {
-      "id": "LG_tv_1",
-      "name": "Wake on LAN",
-      "model": "GenericWOLAdapter",
-      "mac": "{MAC_address_1}"
+      "id": "lg_tv_1_wol",
+      "name": "LG_2 TV Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://10.0.37.62:4338",
+      "ports": [
+        {
+          "id": "lg_tv_1_wol",
+          "name": "LG_1 Power On",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "ka 01 %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "id": "LG_tv_2",
-      "name": "Wake on LAN",
-      "model": "GenericWOLAdapter",
-      "mac": "{MAC_address_2}"
+      "id": "lg_tv_2_wol",
+      "name": "LG_2 TV Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://10.0.37.62:4338",
+      "ports": [
+        {
+          "id": "lg_tv_2_wol",
+          "name": "LG_2 Power On",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "ka 02 %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "01"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": {
     "zr_meeting_started": [
-      "LG_tv_1.wake",
-      "LG_tv_2.wake"
+      "lg_tv_1_wol.power.on",
+      "lg_tv_2_wol.power.on"
     ],
     "zr_meeting_ended": [
       "lg_tv_1.power.off",
@@ -92,8 +134,8 @@
         {
           "name": "Power On TVs (Wake on LAN)",
           "action": [
-            "LG_tv_1.wake",
-            "LG_tv_2.wake"
+            "lg_tv_1_wol.power.on",
+            "lg_tv_2_wol.power.on"
           ]
         },
         {
@@ -106,8 +148,5 @@
       ]
     }
   ],
-  "styles": [
-    "lg_tv_1.power.invisible=false",
-    "lg_tv_2.power.invisible=false"
-  ]
+  "styles": []
 }
