@@ -23,6 +23,11 @@
               "command": "ka 01 %\r\n",
               "params": [
                 {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "01"
+                },
+                {
                   "id": "off",
                   "name": "Power Off",
                   "value": "00"
@@ -49,6 +54,11 @@
               "type": "actions",
               "command": "ka 01 %\r\n",
               "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "01"
+                },
                 {
                   "id": "off",
                   "name": "Power Off",
@@ -77,6 +87,11 @@
               "command": "ka 01 %\r\n",
               "params": [
                 {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "01"
+                },
+                {
                   "id": "off",
                   "name": "Power Off",
                   "value": "00"
@@ -90,9 +105,9 @@
   ],
   "rules": {
     "zr_meeting_started": [
-      "lg_tv_east_wol.power.on",
-      "lg_tv_south_wol.power.on",
-      "lg_tv_pillar_wol.power.on"
+      "lg_tv_east.power.on",
+      "lg_tv_south.power.on",
+      "lg_tv_pillar.power.on"
     ],
     "zr_meeting_ended": [
       "lg_tv_east.power.off",
@@ -100,30 +115,5 @@
       "lg_tv_pillar.power.off"
     ]
   },
-  "controls": [
-    {
-      "name": "TV Control",
-      "type": "button-group",
-      "label": "TV Power",
-      "buttons": [
-        {
-          "name": "Power On TVs (Wake on LAN)",
-          "action": [
-            "lg_tv_east_wol.power.on",
-            "lg_tv_south_wol.power.on",
-            "lg_tv_pillar_wol.power.on"
-          ]
-        },
-        {
-          "name": "Power Off TVs (RS232 over IP)",
-          "action": [
-            "lg_tv_east.power.off",
-            "lg_tv_south.power.off",
-            "lg_tv_pillar.power.off"
-          ]
-        }
-      ]
-    }
-  ],
   "styles": []
 }
