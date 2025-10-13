@@ -2,7 +2,7 @@
   "about": {
     "name": "LG TV Integration, should use RS232 over IP adapters, otherwise use the LG over Serial file",
     "template_version": "3.0.5",
-    "config_version": "1.2",
+    "config_version": "2.3",
     "author": "Mia Hanson"
   },
   "adapters": [
