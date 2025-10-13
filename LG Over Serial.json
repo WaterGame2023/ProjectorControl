@@ -1,0 +1,42 @@
+{
+  "about": {
+    "name": "Serial Commands for LG TV",
+    "config_version": "1.0",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "model": "USB2Serial",
+      "com": "COM10",
+      "ports": [
+        {
+          "id": "lg_tv",
+          "name": "LG TV Serial",
+          "settings": {
+            "baud_rate": 115200,
+            "flow_control": 0,
+            "parity": 0,
+            "data_bits": 8,
+            "stop_bits": 1
+          },
+          "methods": [
+            {
+              "id": "on",
+              "name": "Power On",
+              "command": "ka 01 01",
+              "type": "action"
+            },
+            {
+              "id": "off",
+              "name": "Power Off",
+              "command": "ka 01 00",
+              "type": "action"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "styles": [
+  ]
+}
