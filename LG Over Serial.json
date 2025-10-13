@@ -13,7 +13,7 @@
           "id": "lg_tv",
           "name": "LG TV Serial",
           "settings": {
-            "baud_rate": 115200,
+            "baud_rate": 9600,
             "flow_control": 0,
             "parity": 0,
             "data_bits": 8,
