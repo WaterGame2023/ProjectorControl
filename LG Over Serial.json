@@ -23,13 +23,13 @@
             {
               "id": "on",
               "name": "Power On",
-              "command": "ka 01 01",
+              "command": "ka 01 01\r",
               "type": "action"
             },
             {
               "id": "off",
               "name": "Power Off",
-              "command": "ka 01 00",
+              "command": "ka 01 00\r",
               "type": "action"
             }
           ]
