@@ -115,5 +115,9 @@
       "lg_tv_pillar.power.off"
     ]
   },
-  "styles": []
+  "styles": [
+    "lg_tv_east.power.invisible=true",
+    "lg_tv_south.power.invisible=true",
+    "lg_tv_pillar.power.invisible=true"
+  ]
 }
