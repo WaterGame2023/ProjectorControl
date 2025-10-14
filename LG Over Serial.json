@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "1.0",
+    "config_version": "1.1",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -10,8 +10,8 @@
       "com": "COM10",
       "ports": [
         {
-          "id": "lg_tv",
-          "name": "LG TV Serial",
+          "id": "lg_tv_east",
+          "name": "East TV",
           "settings": {
             "baud_rate": 9600,
             "flow_control": 0,
@@ -37,6 +37,14 @@
       ]
     }
   ],
+  "rules": {
+    "zr_meeting_started": [
+      "lg_tv_east.power.on"
+    ],
+    "zr_meeting_ended": [
+      "lg_tv_east.power.off"
+    ]
+  },
   "styles": [
   ]
 }
