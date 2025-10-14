@@ -33,16 +33,70 @@
               "type": "action"
             }
           ]
+        },
+        {
+          "id": "lg_tv_south",
+          "name": "South TV",
+          "settings": {
+            "baud_rate": 9600,
+            "flow_control": 0,
+            "parity": 0,
+            "data_bits": 8,
+            "stop_bits": 1
+          },
+          "methods": [
+            {
+              "id": "on",
+              "name": "Power On",
+              "command": "ka 02 01\r",
+              "type": "action"
+            },
+            {
+              "id": "off",
+              "name": "Power Off",
+              "command": "ka 02 00\r",
+              "type": "action"
+            }
+          ]
+        },
+        {
+          "id": "lg_tv_pillar",
+          "name": "Pillar TV",
+          "settings": {
+            "baud_rate": 9600,
+            "flow_control": 0,
+            "parity": 0,
+            "data_bits": 8,
+            "stop_bits": 1
+          },
+          "methods": [
+            {
+              "id": "on",
+              "name": "Power On",
+              "command": "ka 03 01\r",
+              "type": "action"
+            },
+            {
+              "id": "off",
+              "name": "Power Off",
+              "command": "ka 03 00\r",
+              "type": "action"
+            }
+          ]
         }
       ]
     }
   ],
   "rules": {
     "zr_meeting_started": [
-      "lg_tv_east.power.on"
+      "lg_tv_east.on",
+      "lg_tv_south.on",
+      "lg_tv_pillar.on"
     ],
     "zr_meeting_ended": [
-      "lg_tv_east.power.off"
+      "lg_tv_east.off",
+      "lg_tv_south.off",
+      "lg_tv_pillar.off"
     ]
   },
   "styles": [
