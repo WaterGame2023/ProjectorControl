@@ -7,7 +7,7 @@
   "adapters": [
     {
       "model": "USB2Serial",
-      "com": "COM9",
+      "com": "COM3",
       "ports": [
         {
           "id": "lg_tv_serial",
