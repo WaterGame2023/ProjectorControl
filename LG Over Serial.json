@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "1.4",
+    "config_version": "1.5",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -10,7 +10,7 @@
       "com": "COM9",
       "ports": [
         {
-          "id": "lg_tv_east",
+          "id": "lg_tv_serial",
           "name": "East TV",
           "settings": {
             "baud_rate": 9600,
@@ -21,63 +21,37 @@
           },
           "methods": [
             {
-              "id": "on",
+              "id": "east_on",
               "name": "Power On",
               "command": "ka 01 01\r",
               "type": "action"
             },
             {
-              "id": "off",
+              "id": "east_off",
               "name": "Power Off",
               "command": "ka 01 00\r",
               "type": "action"
-            }
-          ]
-        },
-        {
-          "id": "lg_tv_south",
-          "name": "South TV",
-          "settings": {
-            "baud_rate": 9600,
-            "flow_control": 0,
-            "parity": 0,
-            "data_bits": 8,
-            "stop_bits": 1
-          },
-          "methods": [
+            },
             {
-              "id": "on",
+              "id": "south_on",
               "name": "Power On",
               "command": "ka 02 01\r",
               "type": "action"
             },
             {
-              "id": "off",
+              "id": "south_off",
               "name": "Power Off",
               "command": "ka 02 00\r",
               "type": "action"
-            }
-          ]
-        },
-        {
-          "id": "lg_tv_pillar",
-          "name": "Pillar TV",
-          "settings": {
-            "baud_rate": 9600,
-            "flow_control": 0,
-            "parity": 0,
-            "data_bits": 8,
-            "stop_bits": 1
-          },
-          "methods": [
+            },
             {
-              "id": "on",
+              "id": "pillar_on",
               "name": "Power On",
               "command": "ka 03 01\r",
               "type": "action"
             },
             {
-              "id": "off",
+              "id": "pillar_off",
               "name": "Power Off",
               "command": "ka 03 00\r",
               "type": "action"
@@ -89,14 +63,14 @@
   ],
   "rules": {
     "zr_meeting_started": [
-      "lg_tv_east.on",
-      "lg_tv_south.on",
-      "lg_tv_pillar.on"
+      "lg_tv_serial.east_on",
+      "lg_tv_serial.south_on",
+      "lg_tv_serial.pillar_on"
     ],
     "zr_meeting_ended": [
-      "lg_tv_east.off",
-      "lg_tv_south.off",
-      "lg_tv_pillar.off"
+      "lg_tv_serial.east_off",
+      "lg_tv_serial.south_off",
+      "lg_tv_serial.pillar_off"
     ]
   },
   "styles": [
