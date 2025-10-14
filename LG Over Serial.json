@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "1.1",
+    "config_version": "1.4",
     "author": "Mia Hanson"
   },
   "adapters": [
