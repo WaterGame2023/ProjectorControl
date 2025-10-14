@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "1.5",
+    "config_version": "1.6",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -11,7 +11,7 @@
       "ports": [
         {
           "id": "lg_tv_serial",
-          "name": "East TV",
+          "name": "TV Power",
           "settings": {
             "baud_rate": 9600,
             "flow_control": 0,
@@ -22,37 +22,37 @@
           "methods": [
             {
               "id": "east_on",
-              "name": "Power On",
+              "name": "East Power On",
               "command": "ka 01 01\r",
               "type": "action"
             },
             {
               "id": "east_off",
-              "name": "Power Off",
+              "name": "East Power Off",
               "command": "ka 01 00\r",
               "type": "action"
             },
             {
               "id": "south_on",
-              "name": "Power On",
+              "name": "South Power On",
               "command": "ka 02 01\r",
               "type": "action"
             },
             {
               "id": "south_off",
-              "name": "Power Off",
+              "name": "South Power Off",
               "command": "ka 02 00\r",
               "type": "action"
             },
             {
               "id": "pillar_on",
-              "name": "Power On",
+              "name": "Pillar Power On",
               "command": "ka 03 01\r",
               "type": "action"
             },
             {
               "id": "pillar_off",
-              "name": "Power Off",
+              "name": "Pillar Power Off",
               "command": "ka 03 00\r",
               "type": "action"
             }
