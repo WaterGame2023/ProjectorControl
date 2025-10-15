@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "2.1",
+    "config_version": "2.2",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -27,27 +27,27 @@
               "type": "action"
             },
             {
-              "id": "east_off",
-              "name": "East Power Off",
-              "command": "ka 01 00\r",
-              "type": "action"
-            },
-            {
               "id": "south_on",
               "name": "South Power On",
               "command": "ka 02 01\r",
               "type": "action"
             },
             {
-              "id": "south_off",
-              "name": "South Power Off",
-              "command": "ka 02 00\r",
-              "type": "action"
-            },
-            {
               "id": "pillar_on",
               "name": "Pillar Power On",
               "command": "ka 03 01\r",
+              "type": "action"
+            },
+            {
+              "id": "east_off",
+              "name": "East Power Off",
+              "command": "ka 01 00\r",
+              "type": "action"
+            },
+            {
+              "id": "south_off",
+              "name": "South Power Off",
+              "command": "ka 02 00\r",
               "type": "action"
             },
             {
