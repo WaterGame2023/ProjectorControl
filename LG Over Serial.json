@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "2.0",
+    "config_version": "2.1",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -11,7 +11,7 @@
       "ports": [
         {
           "id": "lg_tv_serial",
-          "name": "TV Power",
+          "name": "Individual TV Power",
           "settings": {
             "baud_rate": 9600,
             "flow_control": 0,
@@ -96,5 +96,6 @@
     }
   ],
   "styles": [
+    "lg_tv_serial.icon=icon_power"
   ]
 }
