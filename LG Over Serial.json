@@ -1,7 +1,7 @@
 {
   "about": {
     "name": "Serial Commands for LG TV",
-    "config_version": "1.6",
+    "config_version": "2.0",
     "author": "Mia Hanson"
   },
   "adapters": [
@@ -73,6 +73,28 @@
       "lg_tv_serial.pillar_off"
     ]
   },
+  "scenes":[
+    {
+      "id":"all_on",
+      "name":"All TVs On",
+      "icon":"mdi:power:outlined",
+      "commands": [
+        "lg_tv_serial.east_on",
+        "lg_tv_serial.south_on",
+        "lg_tv_serial.pillar_on"
+      ]
+    },
+    {
+      "id":"all_off",
+      "name":"All TVs off",
+      "icon":"mdi:power_off:outlined",
+      "commands": [
+        "lg_tv_serial.east_off",
+        "lg_tv_serial.south_off",
+        "lg_tv_serial.pillar_off"
+      ]
+    }
+  ],
   "styles": [
   ]
 }
