@@ -1,0 +1,85 @@
+{
+  "about": {
+    "name": "Serial Commands for ML2000B TVs",
+    "config_version": "1.1",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "model": "USB2Serial",
+      "com": "COM4",
+      "ports": [
+        {
+          "id": "lg_tv_serial",
+          "name": "Individual TV Power",
+          "settings": {
+            "baud_rate": 9600,
+            "flow_control": 0,
+            "parity": 0,
+            "data_bits": 8,
+            "stop_bits": 1
+          },
+          "methods": [
+            {
+              "id": "left_on",
+              "name": "Left Power On",
+              "command": "ka 01 01\r",
+              "type": "action"
+            },
+            {
+              "id": "right_on",
+              "name": "Right Power On",
+              "command": "ka 02 01\r",
+              "type": "action"
+            },
+            {
+              "id": "left_off",
+              "name": "Left Power Off",
+              "command": "ka 01 00\r",
+              "type": "action"
+            },
+            {
+              "id": "right_off",
+              "name": "Right Power Off",
+              "command": "ka 02 00\r",
+              "type": "action"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "zr_meeting_started": [
+      "lg_tv_serial.left_on",
+      "lg_tv_serial.right_on"
+    ],
+    "zr_meeting_ended": [
+      "lg_tv_serial.left_off",
+      "lg_tv_serial.right_off"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "all_on",
+      "name": "All TVs On",
+      "icon": "mdi:power:outlined",
+      "commands": [
+        "lg_tv_serial.left_on",
+        "lg_tv_serial.right_on"
+      ]
+    },
+    {
+      "id": "all_off",
+      "name": "All TVs off",
+      "icon": "mdi:power_off:outlined",
+      "commands": [
+        "lg_tv_serial.left_off",
+        "lg_tv_serial.right_off"
+      ]
+    }
+  ],
+  "styles": [
+    "lg_tv_serial.icon=icon_power"
+  ]
+}
