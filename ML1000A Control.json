@@ -1,0 +1,101 @@
+{
+  "about": {
+    "name": "Serial Commands for LG TV",
+    "config_version": "2.2",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "model": "USB2Serial",
+      "com": "COM4",
+      "ports": [
+        {
+          "id": "lg_tv_serial",
+          "name": "Individual TV Power",
+          "settings": {
+            "baud_rate": 9600,
+            "flow_control": 0,
+            "parity": 0,
+            "data_bits": 8,
+            "stop_bits": 1
+          },
+          "methods": [
+            {
+              "id": "east_on",
+              "name": "East Power On",
+              "command": "ka 01 01\r",
+              "type": "action"
+            },
+            {
+              "id": "south_on",
+              "name": "South Power On",
+              "command": "ka 02 01\r",
+              "type": "action"
+            },
+            {
+              "id": "pillar_on",
+              "name": "Pillar Power On",
+              "command": "ka 03 01\r",
+              "type": "action"
+            },
+            {
+              "id": "east_off",
+              "name": "East Power Off",
+              "command": "ka 01 00\r",
+              "type": "action"
+            },
+            {
+              "id": "south_off",
+              "name": "South Power Off",
+              "command": "ka 02 00\r",
+              "type": "action"
+            },
+            {
+              "id": "pillar_off",
+              "name": "Pillar Power Off",
+              "command": "ka 03 00\r",
+              "type": "action"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "zr_meeting_started": [
+      "lg_tv_serial.east_on",
+      "lg_tv_serial.south_on",
+      "lg_tv_serial.pillar_on"
+    ],
+    "zr_meeting_ended": [
+      "lg_tv_serial.east_off",
+      "lg_tv_serial.south_off",
+      "lg_tv_serial.pillar_off"
+    ]
+  },
+  "scenes":[
+    {
+      "id":"all_on",
+      "name":"All TVs On",
+      "icon":"mdi:power:outlined",
+      "commands": [
+        "lg_tv_serial.east_on",
+        "lg_tv_serial.south_on",
+        "lg_tv_serial.pillar_on"
+      ]
+    },
+    {
+      "id":"all_off",
+      "name":"All TVs off",
+      "icon":"mdi:power_off:outlined",
+      "commands": [
+        "lg_tv_serial.east_off",
+        "lg_tv_serial.south_off",
+        "lg_tv_serial.pillar_off"
+      ]
+    }
+  ],
+  "styles": [
+    "lg_tv_serial.icon=icon_power"
+  ]
+}
