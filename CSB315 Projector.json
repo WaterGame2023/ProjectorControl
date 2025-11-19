@@ -9,7 +9,7 @@
       "id": "sony_projector_adapter",
       "name": "Sony Projector Adapter",
       "model": "GenericNetworkAdapter",
-      "ip": "tcp://10.0.37.63:53595",
+      "ip": "tcp://10.0.12.121:53595",
       "ports": [
         {
           "id": "projector_port",
