@@ -1,0 +1,97 @@
+{
+  "about": {
+    "name": "Crestron AutomateVX Control",
+    "version": "1.0",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://[AutomateIP]:3579",
+      "ports": [
+        {
+          "id": "automate-vx",
+          "name": "Automate VX",
+          "methods": [
+            {
+              "id": "autoswitch",
+              "name": "AutoSwitch",
+              "command": "POST /z/%Auto HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 0\r\n\r\n",
+              "params": [
+                {
+                  "id": "start-autoswitch",
+                  "name": "Start AutoSwitch",
+                  "value": "Start"
+                },
+                {
+                  "id": "stop-autoswitch",
+                  "name": "Stop AutoSwitch",
+                  "value": "Stop"
+                }
+              ],
+              "type": "actions"
+            },
+            {
+              "id": "layouts",
+              "name": "Layouts",
+              "command": "POST /z/ChLay HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
+              "params": [
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "a"
+                },
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "b"
+                },
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "c"
+                },
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "d"
+                }
+              ],
+              "type": "actions"
+            },
+            {
+              "id": "room_configs",
+              "name": "Room Configs",
+              "command": "POST /z/ChRc HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
+              "params": [
+                {
+                  "id": "[rc-2]",
+                  "name": "[Config2Name]",
+                  "value": "[2]"
+                },
+                {
+                  "id": "[rc-3]",
+                  "name": "[Config3Name]",
+                  "value": "[3]"
+                },
+                {
+                  "id": "[rc-4]",
+                  "name": "[Config4Name]",
+                  "value": "[4]"
+                }
+              ],
+              "type": "actions"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "styles": [
+    "automate-vx.main_method=autoswitch",
+    "automate-vx.icon=icon_rack_equipment",
+    "cam1-at.main_method=tracking",
+    "cam1-at.icon=icon_projector",
+    "cam2-ptz.icon=icon_projector"
+  ]
+}
