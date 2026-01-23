@@ -1,0 +1,72 @@
+{
+  "about": {
+    "name": "Crestron 1Beyond Camera Tracking Control",
+    "version": "1.0",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://[CameraIP]:5500",
+      "ports": [
+        {
+          "id": "cam1-at",
+          "name": "Camera1",
+          "methods": [
+            {
+              "id": "tracking",
+              "name": "Auto Tracking",
+              "command": "\\x81\\x01\\x04\\x3F\\x02%\\xFF",
+              "params": [
+                {
+                  "id": "start_track",
+                  "name": "Start  Tracking",
+                  "value": "\\x50"
+                },
+                {
+                  "id": "stop_track",
+                  "name": "Stop Tracking",
+                  "value": "\\x51"
+                }
+              ],
+            "type": "actions"
+            },
+
+            {
+              "id": "presetcall",
+              "name": "Preset Shots",
+              "command": "\\x81\\x01\\x04\\x3F\\x02%\\xFF",
+              "params": [
+                {
+                  "id": "preset1",
+                  "name": "Preset 1",
+                  "value": "\\x01"
+                },
+                {
+                  "id": "preset2",
+                  "name": "Preset 2",
+                  "value": "\\x02"
+                },
+                {
+                  "id": "preset3",
+                  "name": "Preset 3",
+                  "value": "\\x03"
+                },
+                {
+                  "id": "preset4",
+                  "name": "Preset 4",
+                  "value": "\\x04"
+                }
+              ],
+              "type": "actions"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "styles": [
+    "cam1-at.main_method=tracking",
+    "cam1-at.icon=icon_projector"
+  ]
+}

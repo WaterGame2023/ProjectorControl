@@ -39,22 +39,22 @@
                 {
                   "id": "[AutomateLayout]",
                   "name": "[ZoomDisplayName]",
-                  "value": "a"
+                  "value": "[a]"
                 },
                 {
                   "id": "[AutomateLayout]",
                   "name": "[ZoomDisplayName]",
-                  "value": "b"
+                  "value": "[b]"
                 },
                 {
                   "id": "[AutomateLayout]",
                   "name": "[ZoomDisplayName]",
-                  "value": "c"
+                  "value": "[c]"
                 },
                 {
                   "id": "[AutomateLayout]",
                   "name": "[ZoomDisplayName]",
-                  "value": "d"
+                  "value": "[d]"
                 }
               ],
               "type": "actions"
@@ -65,19 +65,19 @@
               "command": "POST /z/ChRc HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
               "params": [
                 {
-                  "id": "[rc-2]",
+                  "id": "rc-1",
+                  "name": "[Config1Name]",
+                  "value": "1"
+                },
+                {
+                  "id": "rc-2",
                   "name": "[Config2Name]",
-                  "value": "[2]"
+                  "value": "2"
                 },
                 {
-                  "id": "[rc-3]",
+                  "id": "rc-3",
                   "name": "[Config3Name]",
-                  "value": "[3]"
-                },
-                {
-                  "id": "[rc-4]",
-                  "name": "[Config4Name]",
-                  "value": "[4]"
+                  "value": "3"
                 }
               ],
               "type": "actions"
