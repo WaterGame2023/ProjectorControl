@@ -89,9 +89,6 @@
   ],
   "styles": [
     "automate-vx.main_method=autoswitch",
-    "automate-vx.icon=icon_rack_equipment",
-    "cam1-at.main_method=tracking",
-    "cam1-at.icon=icon_projector",
-    "cam2-ptz.icon=icon_projector"
+    "automate-vx.icon=icon_rack_equipment"
   ]
 }
