@@ -16,7 +16,7 @@
             {
               "id": "autoswitch",
               "name": "AutoSwitch",
-              "command": "POST /z/%Auto HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 0\r\n\r\n",
+              "command": "POST /z/%AutoSwitch HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 0\r\n\r\n",
               "params": [
                 {
                   "id": "start-autoswitch",
@@ -34,7 +34,7 @@
             {
               "id": "layouts",
               "name": "Layouts",
-              "command": "POST /z/ChLay HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
+              "command": "POST /z/ChLay HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
               "params": [
                 {
                   "id": "[AutomateLayout]",
@@ -62,7 +62,7 @@
             {
               "id": "room_configs",
               "name": "Room Configs",
-              "command": "POST /z/ChRc HTTP/1.1\r\nAuthorization: Z\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
+              "command": "POST /z/ChRc HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
               "params": [
                 {
                   "id": "rc-1",
