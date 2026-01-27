@@ -1,0 +1,131 @@
+{
+  "about": {
+    "name": "CSB315 Projector and AutomateVX Control BETA DO NOT FUCKING USE YET IT DEFINETLY DOESN'T FUCKING WORK",
+    "version": "0.0.1",
+    "author": "Mia Hanson"
+  },
+  "adapters": [
+    {
+      "id": "sony_projector_adapter",
+      "name": "Sony Projector Adapter",
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://10.0.12.121:53595",
+      "ports": [
+        {
+          "id": "projector_port",
+          "name": "Projector Control",
+          "methods": [
+            {
+              "id": "power",
+              "name": "Power",
+              "type": "actions",
+              "command": "power %\r\n",
+              "params": [
+                {
+                  "id": "on",
+                  "name": "Power On",
+                  "value": "\"on\""
+                },
+                {
+                  "id": "off",
+                  "name": "Power Off",
+                  "value": "\"off\""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "model": "GenericNetworkAdapter",
+      "ip": "tcp://[AutomateIP]:3579",
+      "ports": [
+        {
+          "id": "automate-vx",
+          "name": "Automate VX",
+          "methods": [
+            {
+              "id": "autoswitch",
+              "name": "AutoSwitch",
+              "command": "POST /z/%AutoSwitch HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 0\r\n\r\n",
+              "params": [
+                {
+                  "id": "start-autoswitch",
+                  "name": "Start AutoSwitch",
+                  "value": "Start"
+                },
+                {
+                  "id": "stop-autoswitch",
+                  "name": "Stop AutoSwitch",
+                  "value": "Stop"
+                }
+              ],
+              "type": "actions"
+            },
+            {
+              "id": "layouts",
+              "name": "Layouts",
+              "command": "POST /z/ChLay HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
+              "params": [
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "[a]"
+                },
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "[b]"
+                },
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "[c]"
+                },
+                {
+                  "id": "[AutomateLayout]",
+                  "name": "[ZoomDisplayName]",
+                  "value": "[d]"
+                }
+              ],
+              "type": "actions"
+            },
+            {
+              "id": "room_configs",
+              "name": "Room Configs",
+              "command": "POST /z/ChRc HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
+              "params": [
+                {
+                  "id": "rc-1",
+                  "name": "[Config1Name]",
+                  "value": "1"
+                },
+                {
+                  "id": "rc-2",
+                  "name": "[Config2Name]",
+                  "value": "2"
+                },
+                {
+                  "id": "rc-3",
+                  "name": "[Config3Name]",
+                  "value": "3"
+                }
+              ],
+              "type": "actions"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "zr_meeting_started": [
+      "projector_port.power.on"
+    ],
+    "zr_meeting_ended": [
+      "projector_port.power.off"
+    ]
+  },
+  "styles": []
+}
