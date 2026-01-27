@@ -69,24 +69,24 @@
               "command": "POST /z/ChLay HTTP/1.1\r\nAuthorization: [AuthKey]\r\nHost: [AutomateIP]:3579\r\nContent-Length: 10\r\n\r\n{\"id\":\"%\"}",
               "params": [
                 {
-                  "id": "[AutomateLayout]",
+                  "id": "layout-a",
                   "name": "[ZoomDisplayName]",
-                  "value": "[a]"
+                  "value": "a"
                 },
                 {
-                  "id": "[AutomateLayout]",
+                  "id": "layout-b",
                   "name": "[ZoomDisplayName]",
-                  "value": "[b]"
+                  "value": "b"
                 },
                 {
-                  "id": "[AutomateLayout]",
+                  "id": "layout-c",
                   "name": "[ZoomDisplayName]",
-                  "value": "[c]"
+                  "value": "c"
                 },
                 {
-                  "id": "[AutomateLayout]",
+                  "id": "layout-d",
                   "name": "[ZoomDisplayName]",
-                  "value": "[d]"
+                  "value": "d"
                 }
               ],
               "type": "actions"
